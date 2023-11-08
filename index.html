@@ -44,12 +44,13 @@
 
 
 			function title_time() {
-				var clock;
-				$(document).ready(function() {
-					clock = $('.clock').FlipClock({
-						clockFace: 'TwentyFourHourClock',
-						showSeconds: false
-					});
+			    if (clock) {
+					clock.stop();
+					clock = null;
+				}
+				var clock = $('.clock').FlipClock({
+					clockFace: 'TwentyFourHourClock',
+					showSeconds: false
 				});
 				var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 				var week = ['Mon', 'Tues', 'wed', 'Thur', 'Fri', 'Sat', 'Sun'];
