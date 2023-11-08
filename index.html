@@ -42,15 +42,15 @@
     			document.getElementById('ShowDate').setAttribute("style","zoom:1.5;");
     		}
 
-			var clock;
-			
-			$(document).ready(function() {
-				clock = $('.clock').FlipClock({
-					clockFace: 'TwentyFourHourClock',
-					showSeconds: false
-				});
-			});
+
 			function title_time() {
+				var clock;
+				$(document).ready(function() {
+					clock = $('.clock').FlipClock({
+						clockFace: 'TwentyFourHourClock',
+						showSeconds: false
+					});
+				});
 				var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 				var week = ['Mon', 'Tues', 'wed', 'Thur', 'Fri', 'Sat', 'Sun'];
 				var d = new Date();
@@ -61,7 +61,7 @@
 				document.title = timeString;
 				document.getElementById('ShowDate').innerHTML = d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日" + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
 			}
-			title_time()
+			title_time();
 			setInterval(title_time,1000);
 			function toggleFullScreen() {
 				var elem = document.documentElement;
