@@ -50,12 +50,11 @@
 					showSeconds: false
 				});
 			});
-			var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-			var week = ['Mon', 'Tues', 'wed', 'Thur', 'Fri', 'Sat', 'Sun'];
-			var d = new Date();
-			document.getElementById('ShowDate').innerHTML = d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日" + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
-			// document.getElementById('ShowDate').innerHTML = d.getFullYear() + "-" + month[d.getMonth()] + "-" + d.getDate() + ', ' + week[d.getDay()];
-			function title_time() {
+			function refresh_time() {
+				var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+				var week = ['Mon', 'Tues', 'wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+				document.getElementById('ShowDate').innerHTML = d.getFullYear() + "年" +(d.getMonth() + 1) + "月" + d.getDate() + "日" + ' 星期'+'日一二三四五六'.charAt(new Date().getDay());
+				// document.getElementById('ShowDate').innerHTML = d.getFullYear() + "-" + month[d.getMonth()] + "-" + d.getDate() + ', ' + week[d.getDay()];
 				var d = new Date();
 				var hours = d.getHours().toString().padStart(2, '0');
 				var minutes = d.getMinutes().toString().padStart(2, '0');
@@ -63,8 +62,8 @@
 				var timeString = hours + ':' + minutes + ' ' + (d.getMonth() + 1) + "-" + d.getDate() + " 周" +'日一二三四五六'.charAt(new Date().getDay());;
 				document.title = timeString;
 			}
-			title_time()
-			setInterval(title_time,1000);
+			refresh_time()
+			setInterval(refresh_time,1000);
 			function toggleFullScreen() {
 				var elem = document.documentElement;
 				if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
