@@ -42,16 +42,20 @@
     			document.getElementById('ShowDate').setAttribute("style","zoom:1.5;");
     		}
 
-
+			var clock = null;
+			var isClockRunning = false;
 			function title_time() {
-			    if (clock) {
-					clock.stop();
-					clock = null;
-				}
-				var clock = $('.clock').FlipClock({
+				isClockRunning = false;
+				clock = $('.clock').FlipClock({
 					clockFace: 'TwentyFourHourClock',
 					showSeconds: false
 				});
+				isClockRunning = true;
+				if (isClockRunning) {
+					clock.stop();
+					clock = null;
+					isClockRunning = false;
+				}
 				var month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 				var week = ['Mon', 'Tues', 'wed', 'Thur', 'Fri', 'Sat', 'Sun'];
 				var d = new Date();
